@@ -6,12 +6,14 @@ const questionController = require('~/controllers/question')
 const asyncWrapper = require('~/middlewares/asyncWrapper')
 const isEntityValid = require('~/middlewares/entityValidation')
 const { authMiddleware, restrictTo } = require('~/middlewares/auth')
+const idValidation = require('~/middlewares/idValidation')
 
 const {
   roles: { TUTOR }
 } = require('~/consts/auth')
 
 router.use(authMiddleware)
+router.param('id', idValidation)
 const params = [{ model: Question, idName: 'id' }]
 
 router.get('/', asyncWrapper(questionController.getQuestions))
