@@ -254,7 +254,7 @@ describe('Auth controller', () => {
 
   describe('UpdatePassword endpoint', () => {
     let resetToken
-    beforeEach(async () => {
+    beforeEach(() => {
       const { firstName, email, role } = user
 
       resetToken = tokenService.generateResetToken({ id: signupResponse.body.userId, firstName, email, role })
