@@ -1,13 +1,10 @@
-const { OAuth2Client } = require('google-auth-library')
 const tokenService = require('~/app/services/token')
 const emailService = require('~/app/services/email')
 const { getUserByEmail, createUser, privateUpdateUser, getUserById } = require('~/app/services/user')
 const { hashPassword, comparePasswords } = require('~/app/utils/passwordHelper')
 const { createError } = require('~/app/utils/errorsHelper')
 const {
-  EMAIL_ALREADY_CONFIRMED,
   EMAIL_NOT_CONFIRMED,
-  BAD_CONFIRM_TOKEN,
   INCORRECT_CREDENTIALS,
   BAD_RESET_TOKEN,
   BAD_REFRESH_TOKEN,
@@ -17,9 +14,6 @@ const emailSubject = require('~/app/consts/emailSubject')
 const {
   tokenNames: { REFRESH_TOKEN, RESET_TOKEN, CONFIRM_TOKEN }
 } = require('~/app/consts/auth')
-const {
-  gmailCredentials: { clientId }
-} = require('~/app/configs/config')
 
 const authService = {
   signup: async (role, firstName, lastName, email, password, language) => {
@@ -32,34 +26,6 @@ const authService = {
       userId: user._id,
       userEmail: user.email
     }
-  },
-
-  googleAuth: async (idToken, role, language) => {
-    const client = new OAuth2Client(clientId)
-    const ticket = await client.verifyIdToken({
-      idToken,
-      audience: clientId
-    })
-    const payload = ticket.getPayload()
-
-    if (role) {
-      const user = await getUserByEmail(payload.email)
-      if (!user) {
-        const isEmailConfirmed = true
-        await createUser(
-          role,
-          payload.given_name,
-          payload.family_name,
-          payload.email,
-          payload.sub,
-          language,
-          isEmailConfirmed
-        )
-      }
-    }
-    const isFromGoogle = true
-
-    return await module.exports.login(payload.email, payload.sub, isFromGoogle)
   },
 
   login: async (email, password, isFromGoogle) => {
@@ -95,23 +61,6 @@ const authService = {
 
   logout: async (refreshToken) => {
     await tokenService.removeRefreshToken(refreshToken)
-  },
-
-  confirmEmail: async (confirmToken) => {
-    const tokenData = tokenService.validateConfirmToken(confirmToken)
-    const tokenFromDB = await tokenService.findToken(confirmToken, CONFIRM_TOKEN)
-
-    if (!tokenFromDB || !tokenData) {
-      throw createError(400, BAD_CONFIRM_TOKEN)
-    }
-
-    const { _id, isEmailConfirmed } = await getUserById(tokenData.id)
-
-    if (isEmailConfirmed) {
-      throw createError(400, EMAIL_ALREADY_CONFIRMED)
-    }
-
-    await privateUpdateUser(_id, { isEmailConfirmed: true })
   },
 
   refreshAccessToken: async (refreshToken) => {

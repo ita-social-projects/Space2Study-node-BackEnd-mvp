@@ -40,10 +40,6 @@ const errors = {
     code: 'ALREADY_REGISTERED',
     message: 'User with the specified email already exists.'
   },
-  EMAIL_ALREADY_CONFIRMED: {
-    code: 'EMAIL_ALREADY_CONFIRMED',
-    message: 'User email has been already confirmed.'
-  },
   EMAIL_NOT_CONFIRMED: {
     code: 'EMAIL_NOT_CONFIRMED',
     message: 'Please confirm your email to login.'
@@ -59,10 +55,6 @@ const errors = {
   BAD_REQUEST: {
     code: 'BAD_REQUEST',
     message: 'The request could not be processed due to invalid or missing parameters.'
-  },
-  BAD_CONFIRM_TOKEN: {
-    code: 'BAD_CONFIRM_TOKEN',
-    message: 'The confirm token is either invalid or has expired.'
   },
   BAD_REFRESH_TOKEN: {
     code: 'BAD_REFRESH_TOKEN',
