@@ -28,11 +28,7 @@ const userService = {
 
   getUserById: async (id, role) => {
     return await User.findOne({ _id: id, ...(role && { role }) })
-      .populate([
-        { path: 'mainSubjects.tutor', select: ['-createdAt', '-updatedAt'] },
-        { path: 'mainSubjects.student', select: ['-createdAt', '-updatedAt'] }
-      ])
-      .select('+lastLoginAs +isEmailConfirmed +isFirstLogin +bookmarkedOffers')
+      .select('+lastLoginAs +isEmailConfirmed +isFirstLogin')
       .lean()
       .exec()
   },
@@ -79,7 +75,7 @@ const userService = {
     }
   },
 
-  updateUser: async (id, role, updateData) => {
+  updateUser: async (id, updateData) => {
     const filteredUpdateData = filterAllowedFields(updateData, allowedUserFieldsForUpdate)
 
     const user = await User.findById(id).lean().exec()
@@ -99,8 +95,6 @@ const userService = {
       const photoUrl = await uploadService.uploadFile(updateData.photo.name, buffer, USER)
       filteredUpdateData.photo = photoUrl
     }
-
-    filteredUpdateData.mainSubjects = { ...user.mainSubjects, [role]: updateData.mainSubjects }
 
     await User.findByIdAndUpdate(id, filteredUpdateData, { new: true, runValidators: true }).lean().exec()
   },

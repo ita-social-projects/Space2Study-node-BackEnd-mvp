@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 const {
   enums: { APP_LANG_ENUM, SPOKEN_LANG_ENUM, STATUS_ENUM, ROLE_ENUM, LOGIN_ROLE_ENUM }
 } = require('~/consts/validation')
-const { SUBJECT, OFFER, USER } = require('~/consts/models')
+const { USER } = require('~/consts/models')
 const {
   FIELD_CANNOT_BE_EMPTY,
   ENUM_CAN_BE_ONE_OF,
@@ -12,8 +12,6 @@ const {
   VALUE_MUST_BE_ABOVE,
   VALUE_MUST_BE_BELOW
 } = require('~/consts/errors')
-
-const offerSchema = require('~/models/offer')
 
 const userSchema = new Schema(
   {
@@ -55,16 +53,6 @@ const userSchema = new Schema(
     },
     photo: String,
     professionalSummary: String,
-    mainSubjects: {
-      student: {
-        type: [Schema.Types.ObjectId],
-        ref: SUBJECT
-      },
-      tutor: {
-        type: [Schema.Types.ObjectId],
-        ref: SUBJECT
-      }
-    },
     totalReviews: {
       student: { type: Number, default: 0 },
       tutor: { type: Number, default: 0 }
@@ -149,11 +137,6 @@ const userSchema = new Schema(
       },
       select: false
     },
-    bookmarkedOffers: {
-      type: [Schema.Types.ObjectId],
-      ref: OFFER,
-      select: false
-    },
     FAQ: {
       type: {
         student: [
@@ -215,19 +198,5 @@ const userSchema = new Schema(
     id: false
   }
 )
-
-userSchema.post('findOneAndRemove', async (doc) => {
-  await offerSchema.deleteMany({ author: doc._id })
-})
-
-userSchema.post('findOneAndUpdate', async (doc) => {
-  if (doc) {
-    for (const [key, value] of Object.entries(doc.status)) {
-      if (value === 'blocked') {
-        await offerSchema.updateMany({ author: doc._id, authorRole: key }, { status: 'closed' })
-      }
-    }
-  }
-})
 
 module.exports = model(USER, userSchema)

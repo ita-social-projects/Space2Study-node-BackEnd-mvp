@@ -105,10 +105,6 @@ describe('User controller', () => {
           firstName: testUser.firstName,
           lastName: testUser.lastName,
           email: testUser.email,
-          mainSubjects: expect.objectContaining({
-            tutor: expect.any(Array),
-            student: expect.any(Array)
-          }),
           lastLogin: expect.any(String),
           createdAt: expect.any(String),
           updatedAt: expect.any(String)
@@ -147,10 +143,6 @@ describe('User controller', () => {
           firstName: testUser.firstName,
           lastName: testUser.lastName,
           email: testUser.email,
-          mainSubjects: expect.objectContaining({
-            student: expect.any(Array),
-            tutor: expect.any(Array)
-          }),
           lastLogin: expect.any(String),
           createdAt: expect.any(String),
           updatedAt: expect.any(String)
@@ -195,10 +187,6 @@ describe('User controller', () => {
           firstName: testUser.firstName,
           lastName: testUser.lastName,
           email: testUser.email,
-          mainSubjects: expect.objectContaining({
-            student: expect.any(Array),
-            tutor: expect.any(Array)
-          }),
           lastLogin: expect.any(String),
           createdAt: expect.any(String),
           updatedAt: expect.any(String)
