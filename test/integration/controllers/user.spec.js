@@ -1,15 +1,15 @@
 const { serverInit, serverCleanup, stopServer } = require('~/test/setup')
-const User = require('~/models/user')
-const { DOCUMENT_NOT_FOUND, FORBIDDEN, UNAUTHORIZED } = require('~/consts/errors')
+const User = require('~/app/models/user')
+const { DOCUMENT_NOT_FOUND, FORBIDDEN, UNAUTHORIZED } = require('~/app/consts/errors')
 const { expectError } = require('~/test/helpers')
 const {
   roles: { TUTOR }
-} = require('~/consts/auth')
+} = require('~/app/consts/auth')
 const {
   enums: { STATUS_ENUM }
-} = require('~/consts/validation')
-const testUserAuthentication = require('~/utils/testUserAuth')
-const TokenService = require('~/services/token')
+} = require('~/app/consts/validation')
+const testUserAuthentication = require('~/app/utils/testUserAuth')
+const TokenService = require('~/app/services/token')
 
 const endpointUrl = '/users/'
 const logoutEndpoint = '/auth/logout'
@@ -48,7 +48,7 @@ describe('User controller', () => {
   let app, server
 
   beforeAll(async () => {
-    ;({ app, server } = await serverInit())
+    ; ({ app, server } = await serverInit())
   })
 
   afterEach(async () => {

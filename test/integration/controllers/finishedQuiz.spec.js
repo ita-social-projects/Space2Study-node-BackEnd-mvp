@@ -1,14 +1,14 @@
 const { serverInit, serverCleanup, stopServer } = require('~/test/setup')
 const { expectError } = require('~/test/helpers')
 
-const Quiz = require('~/models/quiz')
+const Quiz = require('~/app/models/quiz')
 
-const testUserAuthentication = require('~/utils/testUserAuth')
-const { UNAUTHORIZED, DOCUMENT_NOT_FOUND } = require('~/consts/errors')
+const testUserAuthentication = require('~/app/utils/testUserAuth')
+const { UNAUTHORIZED, DOCUMENT_NOT_FOUND } = require('~/app/consts/errors')
 const {
   roles: { TUTOR }
-} = require('~/consts/auth')
-const TokenService = require('~/services/token')
+} = require('~/app/consts/auth')
+const TokenService = require('~/app/services/token')
 
 const endpointUrl = '/finished-quizzes/'
 const nonExistingQuiz = '64cf8a3d40135fba5a0c8fa2'
@@ -45,7 +45,7 @@ describe('Quiz controller', () => {
   let app, server, accessToken, currentUser, testFinishedQuiz, testQuiz
 
   beforeAll(async () => {
-    ;({ app, server } = await serverInit())
+    ; ({ app, server } = await serverInit())
   })
 
   beforeEach(async () => {
