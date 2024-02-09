@@ -1,14 +1,14 @@
 const { serverInit, serverCleanup, stopServer } = require('~/test/setup')
-const { DOCUMENT_NOT_FOUND, UNAUTHORIZED } = require('~/consts/errors')
+const { DOCUMENT_NOT_FOUND, UNAUTHORIZED } = require('~/app/consts/errors')
 const { expectError } = require('~/test/helpers')
-const testUserAuthentication = require('~/utils/testUserAuth')
-const Review = require('~/models/review')
-const Category = require('~/models/category')
-const checkCategoryExistence = require('~/seed/checkCategoryExistence')
+const testUserAuthentication = require('~/app/utils/testUserAuth')
+const Review = require('~/app/models/review')
+const Category = require('~/app/models/category')
+const checkCategoryExistence = require('~/app/seed/checkCategoryExistence')
 const jwt = require('jsonwebtoken')
 const {
   config: { JWT_ACCESS_SECRET }
-} = require('~/configs/config')
+} = require('~/app/configs/config')
 
 const endpointUrl = '/reviews/'
 const offerEndpointUrl = '/offers/'
@@ -45,7 +45,7 @@ describe('Review controller', () => {
   let app, server, accessToken, testOffer, testReview, testSubject, userId
 
   beforeAll(async () => {
-    ;({ app, server } = await serverInit())
+    ; ({ app, server } = await serverInit())
   })
 
   beforeEach(async () => {
