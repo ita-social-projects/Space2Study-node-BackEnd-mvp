@@ -48,7 +48,7 @@ SpaceToStudy project is a platform where experts in various fields share their k
 
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp.git`
+- Clone this repo to your local machine from this repository: `https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp.git`
 
 ### Setup
 
@@ -191,11 +191,11 @@ It is appropriate for presentational components but doesn’t cover any logic
 
 ## Contributing
 
-You're encouraged to contribute to our project if you've found any issues or missing functionality that you would want to see. Here you can see [the list of issues](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues) and here you can create [a new issue](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues/new/choose).
+You're encouraged to contribute to our project if you've found any issues or missing functionality that you would want to see. You can add it to 'Issues' in Issue tab and after that click on 'New issue' Here you can see [the list of issues](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues) and here you can create [a new issue](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues/new/choose).
 
 Before sending any pull request, please discuss requirements/changes to be implemented using an existing issue or by creating a new one. All pull requests should be done into `develop` branch.
 
-There are three GitHub projects: [SpaceToStudy-Client](https://github.com/ita-social-projects/Space2Study-node-Client-mvp) for frontend part, [SpaceToStudy-BackEnd](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/pulls) for backend part and admin part is currently under development. Every project has it's own issues.
+There are two GitHub projects: [SpaceToStudy-Client](https://github.com/ita-social-projects/Space2Study-node-Client-mvp) for frontend part and admin part, [SpaceToStudy-BackEnd](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/pulls) for backend part. Every project has it's own issues.
 
 Every pull request should be linked to an issue. So if you make changes on frontend, backend or admin parts you should create an issue with a link to corresponding requirement (story, task or epic).
 
@@ -216,7 +216,7 @@ Only the release should merge into the main branch!!!
 
 - **Option 1**
 
-  - 👯 Clone this repo to your local machine using `https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp.git`
+  - 👯 Clone this repo to your local machine from this repository: `https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp.git`
 
 - **Option 2**
 
@@ -228,7 +228,7 @@ Only the release should merge into the main branch!!!
 
 #### Step 3
 
-- 🔃 Create a new pull request using <a href="https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/compare/" target="_blank">github.com/ita-social-projects/Space2Study-node-BackEnd-mvp</a>.
+- 🔃 Create a new pull request in this repository: <a href="https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/compare/" target="_blank">github.com/ita-social-projects/Space2Study-node-BackEnd-mvp</a>.
 
 ---
 
