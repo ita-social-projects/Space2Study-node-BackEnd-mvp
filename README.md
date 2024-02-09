@@ -48,7 +48,7 @@ SpaceToStudy project is a platform where experts in various fields share their k
 
 ### Clone
 
-- Clone this repo to your local machine from this repository: `https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp.git`
+- Clone this repo to your local machine from this repository
 
 ### Setup
 
@@ -191,11 +191,11 @@ It is appropriate for presentational components but doesn’t cover any logic
 
 ## Contributing
 
-You're encouraged to contribute to our project if you've found any issues or missing functionality that you would want to see. You can add it to 'Issues' in Issue tab and after that click on 'New issue' Here you can see [the list of issues](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues) and here you can create [a new issue](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues/new/choose).
+You're encouraged to contribute to our project if you've found any issues or missing functionality that you would want to see. You can add it to 'Issues' in Issue tab and after that click on 'New issue' Here you can see the list of issues in issue tab and here you can create a new issue after clicking on 'New Issue'.
 
 Before sending any pull request, please discuss requirements/changes to be implemented using an existing issue or by creating a new one. All pull requests should be done into `develop` branch.
 
-There are two GitHub projects: [SpaceToStudy-Client](https://github.com/ita-social-projects/Space2Study-node-Client-mvp) for frontend part and admin part, [SpaceToStudy-BackEnd](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/pulls) for backend part. Every project has it's own issues.
+There are two GitHub projects: [SpaceToStudy-Client] for frontend part and admin part, [SpaceToStudy-BackEnd] for backend part. Every project has it's own issues.
 
 Every pull request should be linked to an issue. So if you make changes on frontend, backend or admin parts you should create an issue with a link to corresponding requirement (story, task or epic).
 
@@ -216,7 +216,7 @@ Only the release should merge into the main branch!!!
 
 - **Option 1**
 
-  - 👯 Clone this repo to your local machine from this repository: `https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp.git`
+  - 👯 Clone this repo to your local machine from this repository
 
 - **Option 2**
 
@@ -228,7 +228,7 @@ Only the release should merge into the main branch!!!
 
 #### Step 3
 
-- 🔃 Create a new pull request in this repository: <a href="https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/compare/" target="_blank">github.com/ita-social-projects/Space2Study-node-BackEnd-mvp</a>.
+- 🔃 Create a new pull request in this repository.
 
 ---
 
@@ -236,11 +236,11 @@ Only the release should merge into the main branch!!!
 
 #### Step 1
 
-- go to [issues](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues) and click `New issue` button
+- go to [issues] and click `New issue` button
 
 #### Step 2
 
-- when creating [issue](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues/new/choose) you should add name of the issue, description, choose assignee, label, project. If issue is a `User Story` you should link it with corresponding tasks, and corresponding tasks should be linked to issue.
+- when creating [issue] you should add name of the issue, description, choose assignee, label, project. If issue is a `User Story` you should link it with corresponding tasks, and corresponding tasks should be linked to issue.
 
 #### Step 3
 
