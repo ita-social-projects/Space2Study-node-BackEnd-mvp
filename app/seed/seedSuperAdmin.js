@@ -15,7 +15,7 @@ const SeedSuperAdmin = {
         firstName,
         lastName,
         email,
-        password: password,
+        password,
         active: true,
         isEmailConfirmed: true
       }
