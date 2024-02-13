@@ -2,10 +2,10 @@ const { serverInit, serverCleanup, stopServer } = require('~/test/setup')
 const {
   lengths: { MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH },
   enums: { ROLE_ENUM }
-} = require('~/app/consts/validation')
-const errors = require('~/app/consts/errors')
-const tokenService = require('~/app/services/token')
-const Token = require('~/app/models/token')
+} = require('~/consts/validation')
+const errors = require('~/consts/errors')
+const tokenService = require('~/services/token')
+const Token = require('~/models/token')
 const { expectError } = require('~/test/helpers')
 const { OAuth2Client } = require('google-auth-library')
 
@@ -15,7 +15,7 @@ describe('Auth controller', () => {
   let app, server, signupResponse
 
   beforeAll(async () => {
-    ; ({ app, server } = await serverInit())
+    ;({ app, server } = await serverInit())
   })
 
   beforeEach(async () => {
@@ -256,6 +256,7 @@ describe('Auth controller', () => {
     let resetToken
     beforeEach(() => {
       const { firstName, email, role } = user
+
       resetToken = tokenService.generateResetToken({ id: signupResponse.body.userId, firstName, email, role })
 
       Token.findOne = jest.fn().mockResolvedValue({ save: jest.fn().mockResolvedValue(resetToken) })
