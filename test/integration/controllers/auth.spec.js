@@ -2,10 +2,10 @@ const { serverInit, serverCleanup, stopServer } = require('~/test/setup')
 const {
   lengths: { MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH },
   enums: { ROLE_ENUM }
-} = require('~/consts/validation')
-const errors = require('~/consts/errors')
-const tokenService = require('~/services/token')
-const Token = require('~/models/token')
+} = require('~/app/consts/validation')
+const errors = require('~/app/consts/errors')
+const tokenService = require('~/app/services/token')
+const Token = require('~/app/models/token')
 const { expectError } = require('~/test/helpers')
 
 describe('Auth controller', () => {

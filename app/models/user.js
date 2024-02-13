@@ -13,8 +13,6 @@ const {
   VALUE_MUST_BE_BELOW
 } = require('~/app/consts/errors')
 
-const offerSchema = require('~/app/models/offer')
-
 const userSchema = new Schema(
   {
     role: {
@@ -215,19 +213,5 @@ const userSchema = new Schema(
     id: false
   }
 )
-
-userSchema.post('findOneAndRemove', async (doc) => {
-  await offerSchema.deleteMany({ author: doc._id })
-})
-
-userSchema.post('findOneAndUpdate', async (doc) => {
-  if (doc) {
-    for (const [key, value] of Object.entries(doc.status)) {
-      if (value === 'blocked') {
-        await offerSchema.updateMany({ author: doc._id, authorRole: key }, { status: 'closed' })
-      }
-    }
-  }
-})
 
 module.exports = model(USER, userSchema)

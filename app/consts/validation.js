@@ -19,10 +19,6 @@ const enums = {
   LOGIN_ROLE_ENUM: ['student', 'tutor', 'admin'],
   MAIN_ROLE_ENUM: ['student', 'tutor'],
   STATUS_ENUM: ['active', 'blocked'],
-  COOPERATION_STATUS_ENUM: ['pending', 'active', 'declined', 'closed'],
-  PARAMS_ENUM: ['id', 'categoryId', 'subjectId'],
-  OFFER_STATUS_ENUM: ['active', 'draft', 'closed'],
-  NOTIFICATION_TYPE_ENUM: ['new', 'requested', 'active', 'declined', 'updated', 'closed', 'deleted'],
   QUESTION_TYPE_ENUM: ['multipleChoice', 'openAnswer', 'oneAnswer'],
   QUIZ_VIEW_ENUM: ['Stepper', 'Scroll'],
   RESOURCES_TYPES_ENUM: ['lessons', 'attachments', 'questions', 'quizzes']
