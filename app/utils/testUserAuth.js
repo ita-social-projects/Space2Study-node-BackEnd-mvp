@@ -1,5 +1,4 @@
 const User = require('~/app/models/user')
-const { hashPassword } = require('~/app/utils/passwordHelper')
 
 const testUserAuthentication = async (app, testUser = {}) => {
   const qtyOfMandatorySignupFields = 5
@@ -16,9 +15,7 @@ const testUserAuthentication = async (app, testUser = {}) => {
     }
   }
 
-  const hashedPassword = await hashPassword(testUser.password)
-
-  await User.create({ ...testUser, password: hashedPassword })
+  await User.create({ ...testUser, password })
 
   const loginUserResponse = await app.post('/auth/login').send({ email: testUser.email, password: testUser.password })
 

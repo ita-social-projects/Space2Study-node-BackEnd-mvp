@@ -1,7 +1,6 @@
 const User = require('~/app/models/user')
 const uploadService = require('~/app/services/upload')
 const { USER } = require('~/app/consts/upload')
-const { hashPassword } = require('~/app/utils/passwordHelper')
 const { createError } = require('~/app/utils/errorsHelper')
 
 const { DOCUMENT_NOT_FOUND, ALREADY_REGISTERED } = require('~/app/consts/errors')
@@ -57,7 +56,6 @@ const userService = {
       throw createError(409, ALREADY_REGISTERED)
     }
 
-    const hashedPassword = await hashPassword(password)
 
     return await User.create({
       role,
@@ -65,7 +63,7 @@ const userService = {
       lastName,
       email,
       lastLoginAs: role,
-      password: hashedPassword,
+      password,
       appLanguage,
       isEmailConfirmed
     })
