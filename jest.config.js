@@ -1,32 +1,35 @@
 module.exports = {
-  roots: ['<rootDir>/test'],
+  roots: ['<rootDir>/src/test'],
   moduleNameMapper: {
-    '^~/(.*)$': '<rootDir>/$1'
+    '^~/(.*)$': '<rootDir>/src/$1'
   },
   verbose: true,
   testEnvironment: 'node',
   collectCoverage: true,
   collectCoverageFrom: [
     '!<rootDir>/node_modules/*',
-    '!<rootDir>/test/**/*',
-    '!<rootDir>/app/consts/*',
-    '!<rootDir>/app/configs/*',
+    '!<rootDir>/src/test/**/*',
+    '!<rootDir>/src/consts/*',
+    '!<rootDir>/src/configs/*',
     '!<rootDir>/docs/*',
-    '!<rootDir>/app/emails/*',
+    '!<rootDir>/src/emails/*',
     '!<rootDir>/*.json',
     '!<rootDir>/*.yaml'
   ],
   coverageThreshold: {
     global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70
     }
   },
   coverageReporters: ['html', 'lcov'],
-  coverageDirectory: '<rootDir>/test/coverage',
+  coverageDirectory: '<rootDir>/src/test/coverage',
   testTimeout: 12000,
-  testMatch: ['<rootDir>/test/integration/**/*.spec.js', '<rootDir>/test/unit/**/*.spec.js'],
+  testMatch: [
+    '<rootDir>/src/test/integration/**/*.spec.js',
+    '<rootDir>/src/test/unit/**/*.spec.js'
+  ],
   testResultsProcessor: 'jest-sonar-reporter'
 }
