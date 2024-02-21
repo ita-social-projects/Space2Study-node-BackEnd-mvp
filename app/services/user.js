@@ -1,6 +1,4 @@
 const User = require('~/app/models/user')
-const uploadService = require('~/app/services/upload')
-const { USER } = require('~/app/consts/upload')
 const { createError } = require('~/app/utils/errorsHelper')
 
 const { DOCUMENT_NOT_FOUND, ALREADY_REGISTERED } = require('~/app/consts/errors')
@@ -52,7 +50,6 @@ const userService = {
       throw createError(409, ALREADY_REGISTERED)
     }
 
-
     return await User.create({
       role,
       firstName,
@@ -80,18 +77,6 @@ const userService = {
 
     if (!user) {
       throw createError(404, DOCUMENT_NOT_FOUND([User.modelName]))
-    }
-
-    if (user.photo) {
-      await uploadService.deleteFile(user.photo, USER)
-    }
-
-    if (updateData.photo) {
-      const mainData = updateData.photo.src.split(',')[1]
-      const buffer = Buffer.from(mainData, 'base64')
-
-      const photoUrl = await uploadService.uploadFile(updateData.photo.name, buffer, USER)
-      filteredUpdateData.photo = photoUrl
     }
 
     filteredUpdateData.mainSubjects = { ...user.mainSubjects, [role]: updateData.mainSubjects }
