@@ -6,9 +6,9 @@
 
 SpaceToStudy project is a platform where experts in various fields share their knowledge and students can learn from the best. Here you can find the proper training course, find a tutor, or find students and receive feedback from them.
 
-[![GitHub issues](https://img.shields.io/github/issues/ita-social-projects/Space2Study-node-BackEnd-mvp)](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/issues)
-[![Pending Pull-Requests](https://img.shields.io/github/issues-pr/ita-social-projects/Space2Study-node-BackEnd-mvp?style=flat-square)](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/pulls)
-[![GitHub license](https://img.shields.io/github/license/ita-social-projects/Space2Study-node-BackEnd-mvp)](https://github.com/ita-social-projects/Space2Study-node-BackEnd-mvp/tree/LICENSE)
+[![GitHub issues](insert your link here)]
+[![Pending Pull-Requests](insert your link here)]
+[![GitHub license](insert your link here)]
 
 ---
 
