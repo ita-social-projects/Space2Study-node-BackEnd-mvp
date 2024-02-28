@@ -44,9 +44,7 @@ const resourcesCategoryService = {
   deleteResourceCategory: async (id, currentUser) => {
     const item = await ResourcesCategory.findById(id).exec()
 
-    const resourceCategoryAuthor = item.author.toString()
-
-    if (resourceCategoryAuthor !== currentUser) {
+    if (item.author !== currentUser) {
       throw createForbiddenError()
     }
 
