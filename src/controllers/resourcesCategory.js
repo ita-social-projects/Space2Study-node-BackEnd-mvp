@@ -51,9 +51,8 @@ const updateResourceCategory = async (req, res) => {
 
 const deleteResourceCategory = async (req, res) => {
   const { id } = req.params
-  const { id: currentUser } = req.user
 
-  await resourcesCategoryService.deleteResourceCategory(id, currentUser)
+  await resourcesCategoryService.deleteResourceCategory(id)
 
   res.status(204).end()
 }
