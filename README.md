@@ -1,5 +1,3 @@
-# Space2Study-node-BackEnd-mvp
-
 <a href="https://softserve.academy/"><img src="https://github.com/ita-social-projects/SpaceToStudy-Client/blob/main/photo2.jpg" title="SoftServe IT Academy" alt="SoftServe IT Academy"></a>
 
 # SpaceToStudy project
