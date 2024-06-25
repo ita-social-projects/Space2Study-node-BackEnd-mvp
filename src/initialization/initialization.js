@@ -15,7 +15,7 @@ const initialization = (app) => {
   app.use(cookieParser())
   app.use(
     cors({
-      origin: CLIENT_URL,
+      origin: process.env.NODE_ENV === 'development' ? true : CLIENT_URL,
       credentials: true,
       methods: 'GET, POST, PATCH, DELETE',
       allowedHeaders: 'Content-Type, Authorization'
