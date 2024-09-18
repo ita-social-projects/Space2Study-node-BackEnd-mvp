@@ -1,5 +1,5 @@
 const { createUnauthorizedError } = require('~/utils/errorsHelper')
-const tokenService = require('~/src/services/token')
+const tokenService = require('../services/token')
 
 const tokenValidation = (accessToken) => {
   if (!accessToken) {
